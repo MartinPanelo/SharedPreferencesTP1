@@ -46,11 +46,11 @@ public class ApiClient {
         int ID = 1;
 
         while (sp.contains("correo" + ID)) {
-            ID++;
-            if(sp.getString("correo"+ ID,"").equals(usuario.getCorreo()) ||
-               sp.getString("dni"+ ID,"").equals(usuario.getDni())){// controlo que no se registre el mismo correo o dni
+            if(sp.getString("correo"+ ID,"").equals(usuario.getCorreo())){
+                // controlo que no se registre el mismo correo
                return -1;
             }
+            ID++;
         }
         editor.putString("dni"+ID,usuario.getDni());
         editor.putString("apellido"+ID, usuario.getApellido());
@@ -98,6 +98,21 @@ public class ApiClient {
         SharedPreferences sp = conectar(context);
 
         SharedPreferences.Editor editor = sp.edit();
+
+        int IDaux = 1;
+
+        while (sp.contains("correo" + IDaux)) {
+
+            if (IDaux == ID) {
+                IDaux++; // para que no se controle con el mismo usuario
+            } else {
+                if (sp.getString("correo" + IDaux, "").equals(usuario.getCorreo())) {
+                    // controlo que no se registre el mismo correo o dni
+                    return -1;
+                }
+                IDaux++;
+            }
+        }
 
         editor.putString("dni" + ID, usuario.getDni());
         editor.putString("apellido" + ID, usuario.getApellido());

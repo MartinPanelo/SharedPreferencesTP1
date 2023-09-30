@@ -69,10 +69,14 @@ public class RegistroActivityViewModel extends AndroidViewModel {
 
         if(ID != -1){
 
-            ApiClient.ActualizarUsuario(context, usuario,ID);
+            int IDNueva = ApiClient.ActualizarUsuario(context, usuario,ID);
 
-            Toast.makeText(context, "Datos actualizados con exito", Toast.LENGTH_SHORT).show();
+            if(IDNueva != -1) {
+                Toast.makeText(context, "Datos actualizados con exito", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(context, "Ya existe una cuenta con ese correo", Toast.LENGTH_SHORT).show();
 
+            }
             this.cargarSesion(ID);
 
         }else{
@@ -85,7 +89,7 @@ public class RegistroActivityViewModel extends AndroidViewModel {
                 Toast.makeText(context, "Registrado con exito", Toast.LENGTH_SHORT).show();
 
             }else{
-                Toast.makeText(context, "Correo o Dni ya registrado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Correo ya registrado", Toast.LENGTH_SHORT).show();
 
             }
 
