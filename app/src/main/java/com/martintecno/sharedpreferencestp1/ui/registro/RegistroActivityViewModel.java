@@ -81,7 +81,13 @@ public class RegistroActivityViewModel extends AndroidViewModel {
 
             int IDNueva = ApiClient.registrar(context, usuario);
 
-            Toast.makeText(context, "Registrado con exito", Toast.LENGTH_SHORT).show();
+            if(IDNueva != -1){
+                Toast.makeText(context, "Registrado con exito", Toast.LENGTH_SHORT).show();
+
+            }else{
+                Toast.makeText(context, "Correo o Dni ya registrado", Toast.LENGTH_SHORT).show();
+
+            }
 
             this.cargarSesion(IDNueva);
 

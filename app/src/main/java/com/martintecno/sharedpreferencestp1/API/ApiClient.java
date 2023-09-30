@@ -47,6 +47,10 @@ public class ApiClient {
 
         while (sp.contains("correo" + ID)) {
             ID++;
+            if(sp.getString("correo"+ ID,"").equals(usuario.getCorreo()) ||
+               sp.getString("dni"+ ID,"").equals(usuario.getDni())){// controlo que no se registre el mismo correo o dni
+               return -1;
+            }
         }
         editor.putString("dni"+ID,usuario.getDni());
         editor.putString("apellido"+ID, usuario.getApellido());
