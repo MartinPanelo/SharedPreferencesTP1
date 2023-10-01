@@ -48,7 +48,7 @@ public class ApiClient {
         while (sp.contains("correo" + ID)) {
             if(sp.getString("correo"+ ID,"").equals(usuario.getCorreo())){
                 // controlo que no se registre el mismo correo
-               return -1;
+               return 0;
             }
             ID++;
         }
@@ -108,7 +108,7 @@ public class ApiClient {
             } else {
                 if (sp.getString("correo" + IDaux, "").equals(usuario.getCorreo())) {
                     // controlo que no se registre el mismo correo o dni
-                    return -1;
+                    return 0;
                 }
                 IDaux++;
             }

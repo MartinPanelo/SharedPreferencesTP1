@@ -29,7 +29,7 @@ public class MainActivityViewModel extends AndroidViewModel {
 
         Intent intent = new Intent(context, RegistroActivity.class);
        // intent.putExtra("OPC", false); // para avisar que es registro
-     //   intent.putExtra("ID", -1); no hace falta porque es -1 por defecto
+        intent.putExtra("ID", 0);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
 

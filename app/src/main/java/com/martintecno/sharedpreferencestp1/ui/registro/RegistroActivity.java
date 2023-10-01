@@ -21,7 +21,7 @@ public class RegistroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      //   boolean OPC = getIntent().getBooleanExtra("OPC", false);
-        int ID = getIntent().getIntExtra("ID", -1);
+        int ID = getIntent().getIntExtra("ID", 0);
         binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -30,7 +30,7 @@ public class RegistroActivity extends AppCompatActivity {
         binding.BTNGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mv.ActualizarRegistrar(ID,binding.ETDni.getText().toString(),
+                mv.ActualizarRegistrar(binding.ETDni.getText().toString(),
                                     binding.ETApellido.getText().toString(),
                                     binding.ETNombre.getText().toString(),
                                     binding.ETCorreo.getText().toString(),
