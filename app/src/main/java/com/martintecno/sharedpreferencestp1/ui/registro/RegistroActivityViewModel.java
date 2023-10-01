@@ -21,7 +21,7 @@ public class RegistroActivityViewModel extends AndroidViewModel {
     private MutableLiveData<String> BotonM;
     private MutableLiveData<Usuario> usuarioM;
 
-    private static int ID;
+    private int ID;
 
     public RegistroActivityViewModel(@NonNull Application application) {
         super(application);
