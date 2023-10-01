@@ -51,9 +51,10 @@ public class RegistroActivityViewModel extends AndroidViewModel {
 
     public void cargarSesion(int ID){
 
-        if(ID != 0){
+        if(ID != 0){ // controlo si quiero actualizar( <=1 ) o registrar( 0 ) el usuario
             TituloM.setValue("Perfil de usuario");
             BotonM.setValue("Guardar");
+            this.ID = ID;
 
             usuarioM.setValue(ApiClient.getUsuario(context, ID));
 
