@@ -54,7 +54,6 @@ public class RegistroActivityViewModel extends AndroidViewModel {
         if(ID != 0){
             TituloM.setValue("Perfil de usuario");
             BotonM.setValue("Guardar");
-            this.ID = ID;
 
             usuarioM.setValue(ApiClient.getUsuario(context, ID));
 
